@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <form ng-submit="add()">
+
+
+            <input type="text" ng-model="new_item.name">
+            <input type="submit" name="add" value="ENTER NEW ITEMS TO BE ADDED" ADD>
+
+        </form>
+        <br><br><br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>ITEMS TO BE BOUGHT</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="i in checklist">
+                    <td>
+                        <label for="food1" ng-hide="check"> {{i.name}}</label> <input type="checkbox" ng-model="check" ng-hide="check">
+
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+
+
+        <BR>
+        <BR>
+        <BR>
+
+
+    </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", function($scope) {
+            $scope.checklist = [{
+                    name: "RICE"
+                }, {
+                    name: 'WHEAT'
+                }
+
+            ];
+
+            $scope.add = function() {
+                $scope.checklist.push({
+                    name: $scope.new_item.name
+
+                })
+
+            };
+
+
+            $scope.item = [{}];
+
+
+        });
+    </script>
+</body>
+
+</html>
