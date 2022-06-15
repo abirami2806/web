@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <body style="background-color: lightblue">
+    <article>
+      <header>
+           
+        <h1 style="background-color: lightseagreen">Bread and jam</h1>
+        <p>Italian taste</p>
+      </header>
+      <footer>
+        <p>
+          By ilaqsah<br />
+          <a href="mailto:hege@example.com">hege@example.com</a>
+        </p>
+      </footer>
+      <section>
+        <h2 style="background-color: lightseagreen">About</h2>
+        <p>
+          Feel the quixotic experience by the natural tastes of the jams and
+          fresh bread!
+        </p>
+      </section>
+
+      <section>
+        <h2 style="background-color: lightseagreen">How to Use</h2>
+        <p>
+          Just open the lid and take a spoon of jam and apply and bread! Ready!
+        </p>
+      </section>
+    </article>
+    <br />
+    <br />
+    <center>
+      <video width="320" height="240" controls>
+        <source src="breadjam.mp4" type="video/mp4" />
+      </video>
+
+      <br />
+      <audio controls>
+        <source
+          src="https://filesamples.com/samples/audio/mp3/sample3.mp3"
+          type="audio/mp3"
+        />
+      </audio>
+    </center>
+    <hr />
+    <p>Click to give your current lcation for delivery:</p>
+
+    <button onclick="getLocation()">Current location</button>
+
+    <p id="demo"></p>
+
+    <script>
+      var x = document.getElementById('demo');
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          x.innerHTML = 'Geolocation is not supported by this browser.';
+        }
+      }
+
+      function showPosition(position) {
+        x.innerHTML =
+          'Latitude: ' +
+          position.coords.latitude +
+          '<br>Longitude: ' +
+          position.coords.longitude;
+      }
+    </script>
+    <h4>Enter your queries here:</h4>
+    <form>
+      <label for="fname">First name:</label><br />
+      <input type="text" id="fname" name="fname" value="John" /><br />
+      <label for="lname">Last name:</label><br />
+      <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
+      <label for="select"></label>
+      <select name="select" id="select">
+        <option value="Damage">Reason</option>
+        <option value="Damage">Damage</option>
+        <option value="Expired">Expired</option>
+        <option value="Breakage">Breakage</option>
+        <option value="Others">Others</option>
+      </select>
+      <br />
+      <label for="lname1">Comments</label><br />
+      <textarea name="lname1" id="lname1" cols="60" rows="5"></textarea>
+    </form>
+    <canvas
+      id="myCanvas"
+      width="200"
+      height="100"
+      style="border: 1px solid #d3d3d3"
+    >
+      Your browser does not support the HTML canvas tag.</canvas
+    >
+
+    <script>
+      var c = document.getElementById('myCanvas');
+      var ctx = c.getContext('2d');
+      ctx.beginPath();
+      ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+      ctx.stroke();
+    </script>
+    <center>
+      <svg height="130" width="500">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop
+              offset="0%"
+              style="stop-color: rgb(255, 255, 0); stop-opacity: 1"
+            />
+            <stop
+              offset="100%"
+              style="stop-color: rgb(255, 0, 0); stop-opacity: 1"
+            />
+          </linearGradient>
+        </defs>
+        <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+        <text fill="#ffffff" font-size="35" font-family="Verdana" x="50" y="86">
+          Nestle
+        </text>
+        Sorry, your browser does not support inline SVG.
+      </svg>
+    </center>
+  </body>
+</html>
+......................................
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The svg element</h1>
+
+<svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+  Sorry, your browser does not support inline SVG.
+</svg>
+ 
+</body>
+</html>
