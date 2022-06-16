@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation form</title>
+    <script>
+        function Validateform() {
+            var usr = document.regform.usrname.value;
+            var pwd = document.regform.pswd.value;
+
+            if (usr.length < 5 || usr.length > 12) {
+                alert("Username should be from 5 to 12 characters");
+                return false;
+            }
+            if (pwd.length < 7 || usr.length > 12) {
+                alert("Password should be from 7 to 12 characters");
+                return false;
+            }
+
+            var valid = false;
+            if (document.getElementById("english").checked) {
+                valid = true;
+            }
+            else if (document.getElementById("nonenglish").checked) {
+                valid = true;
+            }
+            if (!valid) {
+                alert("Please check atleast one checkbox");
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Registration form</h3>
+        <form name="regform" onsubmit="Validateform()" action="">
+            <table>
+                <tr>
+                    <td><label for="">Username: </label></td>
+                    <td><input type="text" name="usrname" id="" required></td>
+                </tr>
+                <tr>
+                    <td><label for="">Password: </label></td>
+                    <td><input type="password" name="pswd" id="" required></td>
+                </tr>
+                <tr>
+                    <td><label for="">Name: </label></td>
+                    <td><input type="text" name="" id="" required></td>
+                </tr>
+                <tr>
+                    <td><label for="">Address: </label></td>
+                    <td><input type="text" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td><label for="">Country: </label></td>
+                    <td>
+                        <select name="Country" id="country" required>
+                            <option value="" disabled selected>(Please select a country)</option>
+                            <option value="India">India</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="USA">USA</option>
+                            <option value="Russia">Russia</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label for="">Zipcode: </label></td>
+                    <td><input type="number" name="" id="" required></td>
+                </tr>
+                <tr>
+                    <td><label for="">Email: </label></td>
+                    <td><input type="email" name="" id="" required></td>
+                </tr>
+                <tr>
+                    <td><label for="">Sex: </label></td>
+                    <td><input type="radio" value="Male" name="sex" id="male" required>
+                        <label for="male">Male</label>
+                        <input type="radio" value="Female" name="sex" id="female" required>
+                        <label for="female">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Language: </label></td>
+                    <td><input type="checkbox" value="English" name="lang" id="english">
+                        <label for="english">English</label>
+                        <input type="checkbox" value="NonEnglish" name="lang" id="nonenglish">
+                        <label for="nonenglish">Non English</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">About: </label></td>
+                    <td>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <button>Submit</button>
+        </form>
+</body>
+
+</html>
