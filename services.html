@@ -1,78 +1,31 @@
+<!DOCTYPE html>
 <html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
-<head>
-    <title>AngularJS Expressions</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
 
-<body bgcolor="lightblue">
-    <script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
-    <script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <div ng-app="DemoApp" ng-controller="myController">
-        <h1 id="bordering" class="style1" align="center">
-            <hello></hello>
-        </h1>
-        <h1 id="bordering" class="style1" align="center">
-            <p>Enter First Operand</p>
-            <input type="number" ng-model="val1">
-            <p>Enter Second Operand</p>
-            <input type="number" ng-model="val2">
-            <p>Enter Operator</p>
-            <input type="operation" ng-model="operation">
-            <p>Result is</p>
-            <p>{{result}}
-                <p>
-                    <input type="button" ng-click="AddMe()" value="Result">
-        </h1>
+        <p>The hexadecimal value of 255 is:</p>
+
+        <h1>{{hex}}</h1>
+
     </div>
+
+    <p>A custom service with a method that converts a given number into a hexadecimal number.</p>
+
     <script>
-        var app = angular.module('DemoApp', [])
-        app.service('CalcService', function() {
-            this.add = function(value1, value2) {
-                return parseInt(value1) + parseInt(value2);
-            }
-            this.subtract = function(value1, value2) {
-                return parseInt(value1) - parseInt(value2);
-            }
-            this.divide = function(value1, value2) {
-                return parseInt(value1) / parseInt(value2);
-            }
-            this.multiply = function(value1, value2) {
-                return parseInt(value1) * parseInt(value2);
-            }
-            this.mod = function(value1, value2) {
-                return parseInt(value1) % parseInt(value2);
+        var app = angular.module('myApp', []);
+
+        app.service('hexafy', function () {
+            this.myFunc = function (x) {
+                return x.toString(16);
             }
         });
-        app.controller('myController', function($scope, CalcService) {
-            $scope.AddMe = function() {
-                switch ($scope.operation) {
-                    case '+':
-                        $scope.result = CalcService.add($scope.val1, $scope.val2);
-                        break;
-                    case '-':
-                        $scope.result = CalcService.subtract($scope.val1, $scope.val2);
-                        break;
-                    case '/':
-                        $scope.result = CalcService.divide($scope.val1, $scope.val2);
-                        break;
-                    case '*':
-                        $scope.result = CalcService.multiply($scope.val1, $scope.val2);
-                        break;
-                    case '%':
-                        $scope.result = CalcService.mod($scope.val1, $scope.val2);
-                        break;
-                    default:
-                        $scope.result = "Invalid Selection ";
-                        break;
-                }
-            }
-        });
-        app.component("hello", {
-            template: 'Arithmetic operation'
+        app.controller('myCtrl', function ($scope, hexafy) {
+            $scope.hex = hexafy.myFunc(255);
         });
     </script>
+
 </body>
 
 </html>
