@@ -1,3 +1,13 @@
+// import express from "express";
+// import cors from "cors";
+// import mongoose from "mongoose";
+// import * as body_parser from "body-parser";
+
+// var app = express();
+// app.use(cors());
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
 var express = require("express");
 var cors = require("cors");
 var app = express();
@@ -15,7 +25,7 @@ var nameSchema = new mongoose.Schema({
   email: String,
   pwd: String,
 });
-var Users_model = mongoose.model("users_cols", nameSchema); //collection name
+var Users_model = mongoose.model("users_col", nameSchema); //collection name
 
 app.use(express.static("public"));
 
